@@ -1,4 +1,5 @@
 # Config files (secrets)
 src/config/config.yaml/
 
+# Dependencies
 node_modules/
