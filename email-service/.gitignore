@@ -1,4 +1,4 @@
 # Config files (secrets)
-src/config/config.yaml
+src/config/config.yaml/
 
-node_modules
+node_modules/

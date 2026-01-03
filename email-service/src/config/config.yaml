@@ -1,0 +1,11 @@
+app:
+  port: 3000
+  baseUrl: http://localhost:3000
+
+rabbitmq:
+  protocol: amqp
+  host: localhost
+  port: 5672
+  username: guest
+  password: guest
+  exchange: user_events
