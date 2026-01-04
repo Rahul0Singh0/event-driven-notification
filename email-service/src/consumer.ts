@@ -14,25 +14,25 @@ export const startEmailConsumer = async () => {
     { durable: true }
   );
 
-  const queue = await channel.assertQueue("", {
-    exclusive: true
+  await channel.assertQueue(RABBITMQ_CONFIG.QUEUE_NAME, {
+    durable: true
   });
 
   await channel.bindQueue(
-    queue.queue,
+    RABBITMQ_CONFIG.QUEUE_NAME,
     RABBITMQ_CONFIG.EXCHANGE,
     ""
   );
 
-  console.log("Email Consumer waiting for events...");
+  console.log("📧 Email Service consuming from:", RABBITMQ_CONFIG.QUEUE_NAME);
 
-  channel.consume(queue.queue, (msg: any) => {
+  channel.consume(RABBITMQ_CONFIG.QUEUE_NAME, (msg: any) => {
     if (!msg) return;
 
     const event = JSON.parse(msg.content.toString());
 
     console.log(
-      `Sending email to ${event.payload.email}`
+      `📧 Email sent to ${event.payload.email}`
     );
 
     channel.ack(msg);

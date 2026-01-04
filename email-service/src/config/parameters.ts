@@ -16,6 +16,7 @@ export const RABBITMQ_CONFIG = {
   USERNAME: config.rabbitmq.username,
   PASSWORD: config.rabbitmq.password,
   EXCHANGE: config.rabbitmq.exchange,
+  QUEUE_NAME: config.rabbitmq.queue,
 
   get CONNECTION_URL() {
     return `${this.PROTOCOL}://${this.USERNAME}:${this.PASSWORD}@${this.HOST}:${this.PORT}`;

@@ -9,3 +9,4 @@ rabbitmq:
   username: admin
   password: strongpassword
   exchange: user_events
+  queue: user_events_queue
